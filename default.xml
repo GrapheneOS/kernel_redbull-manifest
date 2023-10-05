@@ -6,7 +6,7 @@
   <remote  name="grapheneos"
     fetch="https://github.com/GrapheneOS/"
     revision="refs/heads/14" />
-  <default revision="android-msm-redbull-4.19-android14-qpr3"
+  <default revision="refs/tags/android-14.0.0_r0.108"
     remote="aosp" sync-j="4" />
 
   <project path="build" name="kernel_build-redbull" groups="partner" remote="grapheneos"/>
