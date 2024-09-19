@@ -1,43 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
-  <remote  name="aosp"
-    fetch="https://android.googlesource.com/" />
-  <remote  name="grapheneos"
-    fetch="https://github.com/GrapheneOS/"
-    revision="refs/heads/14" />
-  <default revision="refs/tags/android-14.0.0_r0.111"
-    remote="aosp" sync-j="4" />
-
-  <project path="build" name="kernel_build-redbull" groups="partner" remote="grapheneos"/>
-  <project path="private/msm-google" name="kernel_msm-redbull" groups="partner" remote="grapheneos">
-    <linkfile dest="build.config" src="build.config.redbull.no-cfi"/>
-    <linkfile dest="build_redbull-gki.sh" src="build_redbull-gki.sh"/>
-    <linkfile dest="build_redbull.sh" src="build_redbull.sh"/>
-    <linkfile dest="build_sm8250.sh" src="build_sm8250.sh"/>
-    <linkfile dest="build_sm7250.sh" src="build_sm7250.sh"/>
+  <remote name="aosp" fetch="https://android.googlesource.com/"/>
+  <remote name="grapheneos" fetch="https://github.com/GrapheneOS/" revision="refs/tags/2024091900"/>
+  
+  <default remote="aosp" revision="refs/tags/android-14.0.0_r0.111" sync-j="4"/>
+  
+  <project name="kernel/msm-extra/camera-devicetree" path="private/msm-google/arch/arm64/boot/dts/vendor/qcom/camera" revision="3d63f4795a04c39ed22a0eb110a808af64c14696" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-extra/camera-kernel" path="private/msm-google/techpack/camera" revision="1b5298e76bffb7e07d19d0b313e88324537dc9d4" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-extra/dataipa" path="private/msm-google/techpack/dataipa" revision="7063b704d5f99d7a8de5cedb490270b1ee8102c4" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-extra/devicetree" path="private/msm-google/arch/arm64/boot/dts/vendor" revision="afc98e2bb0716a57bf4f8d2b6191378dd7123ce4" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-extra/display-devicetree" path="private/msm-google/arch/arm64/boot/dts/vendor/qcom/display" revision="43e15efe49673c877faa88046094bf1dd5389e3a" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-extra/display-drivers" path="private/msm-google/techpack/display" revision="ca74909cd98764454a2dacf784cda119c45a7f4c" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-extra/video-driver" path="private/msm-google/techpack/video" revision="44b578f70256623c159580af17452851fba976d8" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-modules/data-kernel" path="private/msm-google-modules/data-kernel" revision="4367e909c96c2022ea8d195bbbd42d268918dfe5" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-modules/fts_touch" path="private/msm-google-modules/touch/fts" revision="a43c04864f7693c3dd9849330fc4d388820270be" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-modules/qca-wfi-host-cmn" path="private/msm-google-modules/wlan/qca-wifi-host-cmn" revision="8a7345c25966d20c786edf6680a6c3694e447745" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-modules/sec_touch" path="private/msm-google-modules/touch/sec" revision="0701b191882dc408104ad8af9e2f5eb2bf34c297" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/msm-modules/wlan-fw-api" path="private/msm-google-modules/wlan/fw-api" revision="2659fc5bc818f6ea587921a7e36d57f7a7f34894" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner"/>
+  <project name="kernel/prebuilts/build-tools" path="prebuilts/kernel-build-tools" revision="ca5b087f88c0302ff66f59a6f26be663e92baf15" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner" clone-depth="1"/>
+  <project name="kernel_build-redbull" path="build" remote="grapheneos" revision="e39890e3269df7629f114b83a34eb8afd7da65f7" upstream="refs/tags/2024091900" dest-branch="refs/tags/2024091900" groups="partner"/>
+  <project name="kernel_google_redbull_drivers_staging_qcacld-3.0" path="private/msm-google-modules/wlan/qcacld-3.0" remote="grapheneos" revision="43f6483ff77ae05312029ed8bf5b14c8c5e7d80e" upstream="refs/tags/2024091900" dest-branch="refs/tags/2024091900" groups="partner"/>
+  <project name="kernel_google_redbull_techpack_audio" path="private/msm-google/techpack/audio" remote="grapheneos" revision="60250d243d09bbe6cec7322529913df54a54596a" upstream="refs/tags/2024091900" dest-branch="refs/tags/2024091900" groups="partner"/>
+  <project name="kernel_msm-redbull" path="private/msm-google" remote="grapheneos" revision="a7345195351d65218e2772361c602bd66d455c37" upstream="refs/tags/2024091900" dest-branch="refs/tags/2024091900" groups="partner">
+    <linkfile src="build.config.redbull.no-cfi" dest="build.config"/>
+    <linkfile src="build_redbull-gki.sh" dest="build_redbull-gki.sh"/>
+    <linkfile src="build_redbull.sh" dest="build_redbull.sh"/>
+    <linkfile src="build_sm8250.sh" dest="build_sm8250.sh"/>
+    <linkfile src="build_sm7250.sh" dest="build_sm7250.sh"/>
   </project>
-  <project path="private/msm-google/arch/arm64/boot/dts/vendor" name="kernel/msm-extra/devicetree" groups="partner"/>
-  <project path="private/msm-google/arch/arm64/boot/dts/vendor/qcom/camera" name="kernel/msm-extra/camera-devicetree" groups="partner"/>
-  <project path="private/msm-google/arch/arm64/boot/dts/vendor/qcom/display" name="kernel/msm-extra/display-devicetree" groups="partner"/>
-  <project path="private/msm-google/techpack/audio" name="kernel_google_redbull_techpack_audio" groups="partner" remote="grapheneos"/>
-  <project path="private/msm-google/techpack/camera" name="kernel/msm-extra/camera-kernel" groups="partner"/>
-  <project path="private/msm-google/techpack/dataipa" name="kernel/msm-extra/dataipa" groups="partner"/>
-  <project path="private/msm-google/techpack/display" name="kernel/msm-extra/display-drivers" groups="partner"/>
-  <project path="private/msm-google/techpack/video" name="kernel/msm-extra/video-driver" groups="partner"/>
-  <project path="private/msm-google-modules/data-kernel" name="kernel/msm-modules/data-kernel" groups="partner"/>
-  <project path="private/msm-google-modules/wlan/qca-wifi-host-cmn" name="kernel/msm-modules/qca-wfi-host-cmn" groups="partner"/>
-  <project path="private/msm-google-modules/wlan/qcacld-3.0" name="kernel_google_redbull_drivers_staging_qcacld-3.0" groups="partner" remote="grapheneos"/>
-  <project path="private/msm-google-modules/wlan/fw-api" name="kernel/msm-modules/wlan-fw-api" groups="partner"/>
-  <project path="private/msm-google-modules/touch/fts" name="kernel/msm-modules/fts_touch" groups="partner"/>
-  <project path="private/msm-google-modules/touch/sec" name="kernel/msm-modules/sec_touch" groups="partner"/>
-  <project path="prebuilts/gas/linux-x86" name="platform/prebuilts/gas/linux-x86" clone-depth="1" />
-  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" clone-depth="1" groups="partner" />
-  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" clone-depth="1" groups="partner" />
-  <project path="prebuilts-master/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1" groups="partner" />
-  <project path="prebuilts-master/misc" name="platform/prebuilts/misc" clone-depth="1" groups="partner" />
-  <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" clone-depth="1" groups="partner" />
-  <project path="prebuilts/boot-artifacts" name="platform/prebuilts/boot-artifacts" clone-depth="1" />
-  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" clone-depth="1" groups="partner"/>
-  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" groups="partner" />
+  <project name="platform/prebuilts/boot-artifacts" path="prebuilts/boot-artifacts" revision="9a4b503e0a93b68da75ccdc4f0d01d98a9415371" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" clone-depth="1"/>
+  <project name="platform/prebuilts/build-tools" path="prebuilts/build-tools" revision="cfedc16ec3deb680fca6fe2aff44a1837a97b50d" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner" clone-depth="1"/>
+  <project name="platform/prebuilts/clang/host/linux-x86" path="prebuilts-master/clang/host/linux-x86" revision="537e01a6ff78760ee5b69597efdbc47bc721058d" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner" clone-depth="1"/>
+  <project name="platform/prebuilts/gas/linux-x86" path="prebuilts/gas/linux-x86" revision="b2a189331333e014bfef4c0425b3ef4b74accdd0" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" clone-depth="1"/>
+  <project name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" revision="961622e926a1b21382dba4dd9fe0e5fb3ee5ab7c" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner" clone-depth="1"/>
+  <project name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" revision="cb7b3ac1b7fdb49474ff68761909934d1142f594" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner" clone-depth="1"/>
+  <project name="platform/prebuilts/misc" path="prebuilts-master/misc" revision="15560bb32cdb9b47db48eb4865b736df9708a8fe" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner" clone-depth="1"/>
+  <project name="platform/system/tools/mkbootimg" path="tools/mkbootimg" revision="34bc8bfb493401f7aadbd3b434f9fbfa521e9301" upstream="refs/tags/android-14.0.0_r0.111" dest-branch="refs/tags/android-14.0.0_r0.111" groups="partner" clone-depth="1"/>
 </manifest>
